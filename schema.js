@@ -14,6 +14,7 @@ module.exports.listingSchema=Joi.object({
             url:Joi.string().allow("",null), //empty string and null values allowed since mongoose already has default img
             filename:Joi.string().allow("",null)
         }).optional(),
+        category: Joi.string().required()
     }).required()
 })
 

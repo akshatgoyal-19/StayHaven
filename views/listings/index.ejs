@@ -22,7 +22,7 @@
   }
   .filter {
     text-align: center;
-    margin-right: 2rem;
+    margin-right: 1rem; /* reduced from 2rem */
     opacity: 0.7;
     flex: 0 0 auto;
     user-select: none;
@@ -106,7 +106,7 @@
     /* phone: show 2-3 filters at once */
     .filter {
       min-width: 8rem;
-      margin-right: 1rem;
+      margin-right: 0.75rem;
     }
     .tax-toggle {
       margin-left: 0;
@@ -119,15 +119,20 @@
       padding: 0 1rem 1rem 1rem;
       position: static;
     }
-    #arrow-left, #arrow-right {
-      display: none;
+    /* Show arrows on mobile, smaller size */
+    .arrow-btn {
+      font-size: 1.25rem;
+      position: relative;
+      top: auto;
+      transform: none;
+      z-index: auto;
     }
   }
-
 </style>
 
 <div id="filters-wrapper">
   <button class="arrow-btn" id="arrow-left" aria-label="Scroll Left" disabled>&lt;</button>
+  
   <div id="filters" role="list">
     <a href="/listings" class="filter" role="listitem">
       <div><i class="fa-solid fa-globe"></i></div>
@@ -178,13 +183,15 @@
       <p>Boats</p>
     </a>
   </div>
+
+  <button class="arrow-btn" id="arrow-right" aria-label="Scroll Right">&gt;</button>
+
   <div class="tax-toggle">
     <div class="form-check-reverse form-switch">
       <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
       <label class="form-check-label" for="switchCheckDefault">Display Total After Taxes</label>
     </div>
   </div>
-  <button class="arrow-btn" id="arrow-right" aria-label="Scroll Right">&gt;</button>
 </div>
 
 <!-- cards -->
