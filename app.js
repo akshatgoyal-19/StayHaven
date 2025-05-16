@@ -37,7 +37,7 @@ main().then(()=>{
 }) 
 
 async function main(){
-    await mongoose.connect(MONGO_URL)
+    await mongoose.connect(dbUrl)
 }
 
 
@@ -110,9 +110,9 @@ app.use((req,res,next)=>{
 
 
 
-app.get("/",(req,res)=>{
-    res.redirect("/listings");
-})
+// app.get("/",(req,res)=>{
+//     res.redirect("/listings");
+// })
 
 
 //express router for listing
