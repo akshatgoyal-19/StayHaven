@@ -56,7 +56,31 @@
             <input type="text" name="listing[location]" placeholder="Jaipur, Rajasthan" class="form-control" required>
             <div class="invalid-feedback">Location should be valid</div>
         </div>
-        
+        <div class="mb-3">
+  <label for="category" class="form-label">Category</label>
+  <select class="form-select" name="listing[category]" required>
+    <option disabled selected>Select a category</option>
+    <% 
+      const categoryOptions = {
+        trending: "Trending",
+        rooms: "Rooms",
+        iconicCities: "Iconic Cities",
+        mountains: "Mountains",
+        castles: "Castles",
+        amazingPools: "Amazing Pools",
+        camping: "Camping",
+        farms: "Farms",
+        arctic: "Arctic",
+        dorms: "Dorms",
+        boats: "Boats"
+      };
+      for(const [value, label] of Object.entries(categoryOptions)) { 
+    %>
+      <option value="<%= value %>"><%= label %></option>
+    <% } %>
+  </select>
+  <div class="invalid-feedback">Please select a category</div>
+</div>
         <!-- btn btn-dark is bootstrap class...add-btn is self made for css -->
         <button class="btn btn-dark add-btn mt-3">ADD</button> 
     </form>

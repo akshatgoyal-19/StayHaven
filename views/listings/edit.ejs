@@ -55,8 +55,35 @@
             <lable for="location" class="form-label">Location</lable>
             <input type="text" name="listing[location]" value="<%=listing.location%>"  class="form-control" required>
             <div class="invalid-feedback">Location should be valid</div>
-
         </div>
+        <div class="mb-3">
+  <label for="category" class="form-label">Category</label>
+  <select class="form-select" name="listing[category]" required>
+    <option disabled>Select a category</option>
+    <% 
+      const categoryOptions = {
+        trending: "Trending",
+        rooms: "Rooms",
+        iconicCities: "Iconic Cities",
+        mountains: "Mountains",
+        castles: "Castles",
+        amazingPools: "Amazing Pools",
+        camping: "Camping",
+        farms: "Farms",
+        arctic: "Arctic",
+        dorms: "Dorms",
+        boats: "Boats"
+      };
+      for(const [value, label] of Object.entries(categoryOptions)) { 
+    %>
+      <option value="<%= value %>" <%= listing.category === value ? "selected" : "" %>>
+        <%= label %>
+      </option>
+    <% } %>
+  </select>
+  <div class="invalid-feedback">Please select a category</div>
+</div>
+
         <button class="btn btn-dark edit-btn mt-3">EDIT</button>
     </form>
 </div>

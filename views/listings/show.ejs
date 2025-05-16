@@ -32,7 +32,7 @@
 
     <div class="btns">
 
-    <a href="/listings/<%=listing._id%>/edit" class="btn btn-dark col-1 offset-2 edit-btn">Edit</a>
+    <a href="/listings/<%=listing._id%>/edit" class="btn btn-dark col-1.5 offset-2 edit-btn">Edit</a>
     
     <form method="POST" action="/listings/<%=listing._id%>/?_method=delete">
         <button class="btn btn-dark offset-2">Delete</button>
@@ -81,30 +81,33 @@
      
 
 
-    <%if(listing.reviews.length>0){%>        
-        <div class="row">
-            <p><b>All Reviews</b></p>
-        <% for(review of listing.reviews){%>
-            <div class="card col-5 mb-3 ms-3">
-                <div class="card-body mb-3">
-                    <h5 class="card-title">@<%=review.author.username%></h5>
-                                        <p class="starability-result card-text" data-rating="<%=review.rating%>">Rated: 3 stars</p>
+    <% if (listing.reviews.length > 0) { %>        
+  <div class="row">
+    <p><b>All Reviews</b></p>
 
-                    <p class="card-text"><%=review.comment%></p>
-
-                </div>
-                <form class="mb-3" method="POST" action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE">
-                    <button class="btn btn-sm btn-dark">Delete</button>
-                </form>
-            </div>
-         <% } %>
+    <% for (let review of listing.reviews) { %>
+      <div class="col-12 col-md-6 mb-4">
+        <div class="card h-100 mx-2">
+          <div class="card-body">
+            <h5 class="card-title">@<%= review.author.username %></h5>
+            <p class="starability-result card-text" data-rating="<%= review.rating %>">
+              Rated: <%= review.rating %> stars
+            </p>
+            <p class="card-text"><%= review.comment %></p>
+          </div>
+          <form method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" class="px-3 pb-3">
+            <button class="btn btn-sm btn-dark">Delete</button>
+          </form>
         </div>
-        <%}%>
-    </div>
+      </div>
+    <% } %>
+  </div>
+<% } %>
+
    <div class="col-8 offset-2 mb-3">
                 <div class="card-body">
                     <h3 class="fs-4 fw-bold mb-3">Where you'll be</h3>
-                    <div id="map" class="rounded-3" style="height: 400px; width: 900px;"></div>
+                    <div id="map" class="rounded-3" style="height: 55.6vh; width: 62.5vw;"></div>
                 </div>
         </div>
         

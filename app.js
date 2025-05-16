@@ -2,7 +2,7 @@ if(process.env.NODE_ENV!="production"){
     require('dotenv').config()  //for using env in backend
 }
 
-
+const MONGO_URL="mongodb://127.0.0.1:27017/wanderlust"
 
 const express=require("express");
 const app=express();
@@ -37,7 +37,7 @@ main().then(()=>{
 }) 
 
 async function main(){
-    await mongoose.connect(dbUrl)
+    await mongoose.connect(MONGO_URL)
 }
 
 
@@ -110,9 +110,9 @@ app.use((req,res,next)=>{
 
 
 
-// app.get("/",(req,res)=>{
-//     res.send("HI! root page");
-// })
+app.get("/",(req,res)=>{
+    res.redirect("/listings");
+})
 
 
 //express router for listing

@@ -1,6 +1,7 @@
 const mongoose=require("mongoose");
 const Schema=mongoose.Schema;
-const review=require("./review.js")
+const review=require("./review.js");
+const { required } = require("joi");
 
 
 const listingSchema=new Schema({
@@ -55,12 +56,9 @@ const listingSchema=new Schema({
             "dorms",
             "boats",
         ],
+        required:true
     },
-    // category:{
-    //     type:String,
-    //     enum:["mountain","arctic","farms","deserts"]
-
-    // }
+    
 })
 
 //creating a post mongoose middleware in order to delete review from db incase listing is deleted
