@@ -17,7 +17,7 @@ module.exports.signup=async(req,res)=>{
             if(err){
                 return next(err);
             }
-            req.flash("success","Welcome to Wanderlust!")
+            req.flash("success","Welcome to StayHaven!")
         res.redirect("/listings");
         });
     }catch(e){
@@ -33,7 +33,7 @@ module.exports.renderLoginForm=(req,res)=>{
 }
 //login-post
 module.exports.login=async(req,res)=>{    //passport.authenticate("local",{failureRedirect:"/login"}),callback fn
-    req.flash("success","Welcome to Wanderlust!");
+    req.flash("success","Welcome to StayHaven!");
     let redirectUrl= res.locals.redirectUrl || "/listings"
     
     res.redirect(redirectUrl);
