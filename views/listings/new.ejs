@@ -1,0 +1,66 @@
+<% layout("/layouts/boilerplate.ejs")%>
+<body>
+  
+    <div class="row mt-3"> <!--brings content to same row-->
+        <div class="col-8 offset-2"> <!--col size of every thing reduces (shrink input field area).... offset-2 shifts the form towards center-->
+    <h3>Create a New Listing</h3>
+    <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">  <!-- encytpe multi: allows form to have pdf/imgs-->
+        <!-- novalidate is a bootstrap thing that disable browser default tips and then we create own using class needs-validation -->
+         <!-- now copy javascript logic from bootsrap for needs-validation (validation topic) -->
+
+
+         <!-- making obj for name of each ele of form...obj listing and title,des.. its keys ..eg listing[title]-->
+
+        <!-- making each input into a div(for styling) and adding a label for each with bootsrap class form-label and for input form-control class -->
+        <div class="mb-3">  <!--bootsrap classes margin bottom : 3-->
+            <lable for="title" class="form-label">Title</lable>
+            <input type="text" name="listing[title]" placeholder="Add a catchy title" class="form-control" required>
+
+             <!-- now we make a new div with class valid-feeback..it executes only if upper title thing is valid -->
+              <!-- similary invalid-feedback for some bt -->
+               <div class="valid-feedback">Title looks great!</div>
+               <div class="invalid-feedback">Enter a valid Title</div>
+        </div>
+
+        <div class="mb-3">
+            <lable for="description" class="form-label">Description</lable>
+            <textarea type="text" name="listing[description]" placeholder="description" class="form-control" required></textarea>
+            <div class="invalid-feedback">Please enter a short description</div>
+        </div>
+
+        <div class="mb-3">
+            <lable for="image" class="form-label">Upload Image</lable>
+            <input type="file" name="listing[image]" placeholder="image link/url" class="form-control" required>
+            
+        </div>
+
+        <div class="row">
+
+        <div class="mb-3 col-md-4">
+            <lable for="price" class="form-label">Price</lable>
+            <input name="listing[price]" placeholder="1200" class="form-control" required>
+            <div class="invalid-feedback">Price must be valid</div>
+        </div>
+
+
+        <div class="mb-3 col-md-8">
+            <lable for="country" class="form-label">Country</lable>
+            <input type="text" name="listing[country]" placeholder="India" class="form-control" required>
+            <div class="invalid-feedback">Country name should be valid</div>
+        </div>
+        
+        </div>
+
+        <div class="mb-3">
+            <lable for="location" class="form-label">Location</lable>
+            <input type="text" name="listing[location]" placeholder="Jaipur, Rajasthan" class="form-control" required>
+            <div class="invalid-feedback">Location should be valid</div>
+        </div>
+        
+        <!-- btn btn-dark is bootstrap class...add-btn is self made for css -->
+        <button class="btn btn-dark add-btn mt-3">ADD</button> 
+    </form>
+    <br><br>
+</div>
+</div>
+

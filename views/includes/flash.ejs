@@ -1,0 +1,15 @@
+<%if(success && success.length){%>
+    <!-- alert-dismissible fade show for dismissing the alert -->
+    <div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
+    <%=success%>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <!-- button to dismiss  -->
+</div>
+<%}%> <%if(error && error.length){%>
+    <!-- alert-dismissible fade show for dismissing the alert -->
+    <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
+    <%=error%>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <!-- button to dismiss  -->
+</div>
+<%}%>
