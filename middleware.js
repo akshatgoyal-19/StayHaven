@@ -55,7 +55,7 @@ module.exports.validateReview=(req,res,next)=>{       //joi fn
 module.exports.isReviewAuthor=async(req,res,next)=>{
     let {id,reviewId}=req.params;
     let user = await Review.findById(reviewId);
-    if(!review.author.equals(res.locals.currentUser._id)){
+    if(!review.author.equals(res.locals.currentUser._id)){     
         req.flash("error","Author Validation Failed")
         return res.redirect(`/listings/${id}`)
     }
