@@ -10,10 +10,10 @@ module.exports.listingSchema=Joi.object({
         location: Joi.string().required(),
         country: Joi.string().required(),
         price: Joi.number().required().min(0), //prevents -ve number
-        image:Joi.object({ 
-            url:Joi.string().allow("",null), //empty string and null values allowed since mongoose already has default img
-            filename:Joi.string().allow("",null)
-        }).optional(),
+        // image:Joi.object({ 
+        //     url:Joi.string().allow("",null), //empty string and null values allowed since mongoose already has default img
+        //     filename:Joi.string().allow("",null)
+        // }).optional(),
     }).required()
 })
 

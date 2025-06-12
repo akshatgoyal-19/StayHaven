@@ -66,12 +66,10 @@ module.exports.createListing=async(req,res,next)=>{
         let resp=await getGeoJSON(newListing.location);
         newListing.geoLocation = resp.geometry
         newListing.owner=req.user._id;
-        let a=await newListing.save()
-        console.log(a)
+        await newListing.save()
         req.flash("success","New Listing Created!") //connect-flash ..recorded in a key:value pair
-        let b=res.redirect("/listings")
-        console.log(b)
-    }
+        res.redirect("/listings")
+        }
 
     //:id
 module.exports.showListing=async (req,res)=>{

@@ -40,21 +40,21 @@ const listingSchema=new Schema({
             type:[Number],
             required:true
         }
-    },category:{
-        type:String,
-        enum:[
-            "trending",
-            "rooms",
-            "iconicCities",
-            "mountains",
-            "castles",
-            "amazingPools",
-            "camping",
-            "farms",
-            "arctic",
-            "dorms",
-            "boats",
-        ],
+    // },category:{
+    //     type:String,
+    //     enum:[
+    //         "trending",
+    //         "rooms",
+    //         "iconicCities",
+    //         "mountains",
+    //         "castles",
+    //         "amazingPools",
+    //         "camping",
+    //         "farms",
+    //         "arctic",
+    //         "dorms",
+    //         "boats",
+    //     ],
     },
     // category:{
     //     type:String,
