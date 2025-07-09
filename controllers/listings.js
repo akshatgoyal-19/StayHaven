@@ -1,5 +1,4 @@
 const Listing=require("../models/listing")
-
 async function getGeoJSON(address) {
     console.log(address);
     const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`);
@@ -32,7 +31,7 @@ module.exports.index = async (req, res) => {
     }
 
     const listing = await Listing.find(filter);
-    res.render("listings/index", { listings: listing, search });
+    res.render("listings/index", { listings: listing, search,category });
 };
 
 // //listings
@@ -49,7 +48,7 @@ module.exports.index = async (req, res) => {
 
 //create -get
 module.exports.renderNewForm=(req,res)=>{
-    res.render("./listings/new.ejs")
+    res.render("./listings/new.ejs",)
 }
 
 //post create

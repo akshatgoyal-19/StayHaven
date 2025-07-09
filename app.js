@@ -16,7 +16,6 @@ const ExpressError=require("./utils/ExpressError.js")
 const {listingSchema,reviewSchema}=require("./schema.js")  //JOI :used for schema and data validation
 const session=require("express-session")  //express-sessions : used for creating sessions and session cookies
 const MongoStore = require('connect-mongo');
-
 const flash=require("connect-flash") //connect flash to put message that appears only once in ejs eg. new user registered and refreshing takes them away
 const passport=require("passport")  // npm: for login and signup authentication
 const LocalStrategy=require("passport-local") //for local signin process i.e. using email and password etc
@@ -135,7 +134,7 @@ app.use((err,req,res,next)=>{
     res.status(statusCode).render("error.ejs",{message})  
 })
 
-const port=8080;
+const port= process.env.PORT || 8080;
 app.listen(port,()=>{
     console.log(`listening at port ${port}`)
 })

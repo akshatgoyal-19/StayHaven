@@ -55,12 +55,13 @@ const listingSchema=new Schema({
     //         "dorms",
     //         "boats",
     //     ],
-    },
+    }
     // category:{
     //     type:String,
     //     enum:["mountain","arctic","farms","deserts"]
 
     // }
+
 })
 
 //creating a post mongoose middleware in order to delete review from db incase listing is deleted
